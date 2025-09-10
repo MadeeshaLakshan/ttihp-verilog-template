@@ -1,32 +1,36 @@
 # Tiny Tapeout project information
 project:
   title:        "test_1"      # Project title
-  author:       "madeesha"      # Your name
-  discord:      ""      # Your discord username, for communication and automatically assigning you a Tapeout role (optional)
-  description:  "just to check"      # One line description of what your project does
-  language:     "Verilog" # other examples include SystemVerilog, Amaranth, VHDL, etc
-  clock_hz:     50000000       # Clock frequency in Hz (or 0 if not applicable)
+  author:       "madeesha"    # Your name
+  discord:      ""            # Your discord username (optional)
+  description:  "just to check" # One line description of what your project does
+  language:     "Verilog"     # HDL used
+  clock_hz:     50000000      # Clock frequency in Hz
 
-  # How many tiles your design occupies? A single tile is about 167x108 uM.
-  tiles: "1x1"          # Valid values: 1x1, 1x2, 2x2, 3x2, 4x2, 6x2 or 8x2
+  # Tile size (area on silicon)
+  tiles: "1x1"
 
-  # Your top module name must start with "tt_um_". Make it unique by including your github username:
+  # Your top module name must start with "tt_um_"
   top_module:  "tt_um_example"
 
-  # List your project's source files here.
-  # Source files must be in ./src and you must list each source file separately, one per line.
-  # Don't forget to also update `PROJECT_SOURCES` in test/Makefile.
+  # List your project's source files here (must be in ./src/)
   source_files:
-    - "project.v"
+    - "tt_um_example.v"
+    - "clock_divider.v"
+    - "controller.v"
+    - "data_mem.v"
+    - "debouncer.v"
+    - "sev_seg_decoder.v"
+    - "spi_interface.v"
+    - "top_module.v"
+    - "uart_rx.v"
 
-# The pinout of your project. Leave unused pins blank. DO NOT delete or add any pins.
-# This section is for the datasheet/website. Use descriptive names (e.g., RX, TX, MOSI, SCL, SEG_A, etc.).
-
+# Pinout of your project
 pinout:
   # Inputs
-  ui[0]: ""
-  ui[1]: ""
-  ui[2]: ""
+  ui[0]: "UART_RX"
+  ui[1]: "DIN_EN"
+  ui[2]: "START_SENDING"
   ui[3]: ""
   ui[4]: ""
   ui[5]: ""
@@ -34,14 +38,14 @@ pinout:
   ui[7]: ""
 
   # Outputs
-  uo[0]: "count[0]"
-  uo[1]: "count[1]"
-  uo[2]: "count[2]"
-  uo[3]: "count[3]"
-  uo[4]: "count[4]"
-  uo[5]: "count[5]"
-  uo[6]: "count[6]"
-  uo[7]: "count[7]"
+  uo[0]: "SPI_CLK"
+  uo[1]: "SPI_DATA"
+  uo[2]: "CS_N"
+  uo[3]: ""
+  uo[4]: ""
+  uo[5]: ""
+  uo[6]: ""
+  uo[7]: ""
 
   # Bidirectional pins
   uio[0]: ""
