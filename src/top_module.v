@@ -1,5 +1,4 @@
 
-`timescale 1ns/1ps
 
 module top_module(
     input clk,
@@ -114,4 +113,5 @@ module top_module(
         .seg(seg4)
     );
     
+
 endmodule
