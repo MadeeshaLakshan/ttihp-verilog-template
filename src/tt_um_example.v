@@ -12,8 +12,10 @@ module tt_um_example (
 );
 
     // === Signal mapping ===
-    wire spi_clk, spi_data, cs_n;
+    wire spi_clk, spi_data, cs_n,done_send,m_valid;
     wire [6:0] seg1,seg2,seg3,seg4;
+    wire [4:0]addr;
+    
 
     top_module uut (
         .clk(clk),
@@ -28,9 +30,9 @@ module tt_um_example (
 
         // Debug signals left unconnected
         .seg1(seg1), .seg2(seg2), .seg3(seg3), .seg4(seg4),
-        .done_send(),
-        .m_valid(),
-        .addr()
+        .done_send(done_send),
+        .m_valid(m_valid),
+        .addr(addr)
     );
 
     // === Assign outputs ===
