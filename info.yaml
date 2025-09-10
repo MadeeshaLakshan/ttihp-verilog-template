@@ -11,7 +11,7 @@ project:
   tiles: "2x2"
 
   # Your top module name must start with "tt_um_"
-  top_module:  "tt_um_example"
+  top_module:  "tt_um_madeesha"
 
   # List your project's source files here (must be in ./src/)
   source_files:
