@@ -20,7 +20,7 @@ project:
     - "controller.v"
     - "data_mem.v"
     - "debouncer.v"
-    - "sev_seg_decoder.v"
+    - "sev_seg_decorder.v"
     - "spi_interface.v"
     - "top_module.v"
     - "uart_rx.v"
