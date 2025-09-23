@@ -11,41 +11,44 @@ module tt_um_madeesha (
     input  wire       rst_n     // Reset (active low)
 );
 
-    // === Signal mapping ===
-    wire spi_clk, spi_data, cs_n,done_send,m_valid;
-    wire [6:0] seg1,seg2,seg3,seg4;
-    wire [4:0]addr;
-    
+    // === Internal signals ===
+    wire [8:0] pwm_out;
+    wire [6:0] seg0, seg1, seg2, seg3;
+    wire [3:0] pkt_count;
 
-    top_module uut (
+    // === DUT instantiation ===
+    uart_pwm_top uut (
         .clk(clk),
         .rst_n(rst_n),
-        .rx(ui_in[0]),           // UART input
-        .din_en(ui_in[1]),       // Data input enable
-        .start_sending(ui_in[2]),// Start sending
+        .uart_rx(ui_in[0]),   // Map UART RX to ui_in[0]
 
-        .spi_clock(spi_clk),
-        .spi_data(spi_data),
-        .cs_n(cs_n),
+        .pwm_out(pwm_out),
 
-        // Debug signals left unconnected
-        .seg1(seg1), .seg2(seg2), .seg3(seg3), .seg4(seg4),
-        .done_send(done_send),
-        .m_valid(m_valid),
-        .addr(addr)
+        .seg0(seg0),
+        .seg1(seg1),
+        .seg2(seg2),
+        .seg3(seg3),
+
+        .pkt_count(pkt_count)
     );
 
     // === Assign outputs ===
-    assign uo_out[0] = spi_clk;
-    assign uo_out[1] = spi_data;
-    assign uo_out[2] = cs_n;
-    assign uo_out[7:3] = 5'b00000; // unused outputs
+    // Map 8 outputs: pick important signals
+    assign uo_out[0] = pwm_out[0];   // PWM0
+    assign uo_out[1] = pwm_out[1];   // PWM1
+    assign uo_out[2] = pwm_out[2];   // PWM2
+    assign uo_out[3] = pwm_out[3];   // PWM3
+    assign uo_out[4] = pwm_out[4];   // PWM4
+    assign uo_out[5] = pwm_out[5];   // PWM5
+    assign uo_out[6] = pwm_out[6];   // PWM6
+    assign uo_out[7] = pwm_out[7];   // PWM7
+    // Note: pwm_out[8], segments, and pkt_count not connected (too many signals for 8-bit out)
 
     // === Tie off unused IOs ===
     assign uio_out = 8'd0;
     assign uio_oe  = 8'd0;
 
     // Prevent unused warnings
-    wire _unused = &{ena, uio_in, 1'b0};
+    wire _unused = &{ena, uio_in, pwm_out[8], seg0, seg1, seg2, seg3, pkt_count, 1'b0};
 
 endmodule
