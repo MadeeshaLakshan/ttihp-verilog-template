@@ -40,7 +40,7 @@ module uart_rx #(
               DATA:   if(c_clocks == CLOCKS_PER_PULSE-1)begin
                             c_clocks <= 0;
                             m_data <= {rx, m_data[W_OUT-1:1]}; // Shift in the received bit
-                            if(c_bits == BITS_PER_WORD - 1) begin
+                            if(c_bits == BITS_PER_WORD-1) begin
                                 c_bits <= 0;
                                 state <= STOP; // Move to stop state after all bits are received
                                 if(c_words == NUM_WORDS - 1) begin
