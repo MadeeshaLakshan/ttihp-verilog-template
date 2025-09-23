@@ -19,7 +19,7 @@ project:
     - "uart_pwm_top.v"
     - "pwm_9ch.v"
     - "uart_rx.v"
-    - "sev_seg_decoder.v"
+    - "sev_seg_decorder.v"
 
 # Pinout of your project
 pinout:
