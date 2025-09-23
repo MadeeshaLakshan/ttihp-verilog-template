@@ -8,7 +8,7 @@ project:
   clock_hz:     50000000      # Clock frequency in Hz
 
   # Tile size (area on silicon)
-  tiles: "1x1"
+  tiles: "2x2"
 
   # Your top module name must start with "tt_um_"
   top_module:  "tt_um_madeesha"
