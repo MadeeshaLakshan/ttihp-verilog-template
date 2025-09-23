@@ -23,9 +23,9 @@ project:
 # Pinout of your project
 pinout:
   # Inputs
-  ui[0]: "UART_RX"
-  ui[1]: "DIN_EN"
-  ui[2]: "START_SENDING"
+  ui[0]: "uart_rx"
+  ui[1]: ""
+  ui[2]: ""
   ui[3]: ""
   ui[4]: ""
   ui[5]: ""
