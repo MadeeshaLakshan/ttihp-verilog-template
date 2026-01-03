@@ -38,13 +38,13 @@ module washer_ctrl (
 	reg spin_timer_start;
 	wire spin_timer_done;
 	reg [$clog2(N_REWASH) - 1:0] rewash_count;
-	counter #(.COUNT_MAX(T_WASH)) wash_timer(
+	counter_washer #(.COUNT_MAX(T_WASH)) wash_timer(
 		.clk(clk),
 		.rstn(rstn),
 		.start(wash_timer_start),
 		.done(wash_timer_done)
 	);
-	counter #(.COUNT_MAX(T_SPIN_MAX)) spin_timer(
+	counter_washer #(.COUNT_MAX(T_SPIN_MAX)) spin_timer(
 		.clk(clk),
 		.rstn(rstn),
 		.start(spin_timer_start),
