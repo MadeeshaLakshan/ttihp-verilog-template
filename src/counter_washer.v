@@ -1,4 +1,4 @@
-module counter (
+module counter_washer (
 	clk,
 	rstn,
 	start,
