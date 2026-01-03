@@ -1,4 +1,3 @@
-`include "counter_washer.v"
 module washer_ctrl (
 	clk,
 	rstn,
