@@ -4,7 +4,6 @@
  */
 
 `default_nettype none
-`include "washer_ctrl.v"
 module tt_um_washer_ctrl (
     input  wire [7:0] ui_in,    // Inputs from pins
     output wire [7:0] uo_out,   // Outputs to pins
