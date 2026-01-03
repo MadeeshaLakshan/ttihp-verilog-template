@@ -11,15 +11,13 @@ project:
   tiles: "1x2"
 
   # Your top module name must start with "tt_um_"
-  top_module:  "tt_um_madeesha"
+  top_module:  "tt_um_washer_ctrl"
 
   # List your project's source files here (must be in ./src/)
   source_files:
-    - "tt_um_example.v"
-    - "uart_pwm_top.v"
-    - "pwm_9ch.v"
-    - "uart_rx.v"
-    - "sev_seg_decorder.v"
+    - "project.v"
+    - "counter.v"
+    - "washer_ctrl.v"
 
 # Pinout of your project
 pinout:
